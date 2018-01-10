@@ -1,8 +1,8 @@
 // Reqs.
 const huejay = require("huejay");
-const dpPath = "./db.json"
+const dpPath = "../db/db.json"
 const db = require(dpPath);
-const colourDB = require("./colour.json");
+const colourDB = require("./db/colour.json");
 const lambID = "1";
 
 // Creates real client that will be used for everything

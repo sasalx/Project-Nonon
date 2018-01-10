@@ -1,7 +1,7 @@
 // Reqs.
 const huejay = require("huejay");
 const fs = require("fs");
-const dpPath = "./db.json"
+const dpPath = "../db/db.json"
 const db = require(dpPath);
 
 // Discover your bridge
