@@ -8,7 +8,7 @@ const db = require(dpPath);
 let client = new huejay.Client({
     host:     db.bridgeIP,
     port:     80,               // Optional
-    username: "", // Optional
+    username: "", 
     timeout:  15000,            // Optional, timeout in milliseconds (15000 is the default)
 });
 
