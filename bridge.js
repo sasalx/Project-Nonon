@@ -17,12 +17,12 @@ huejay.discover()
     console.log(`Error: ${error.message}`);
   });
 
+// Updates db.json
 function jsonUpdate(){
   fs.writeFile(dpPath, JSON.stringify(db, null, 2), function (err) {
     if(err) {
       return console.log(err);
     }
     console.log(JSON.stringify(db));
-    console.log('writing to ' + dpPath);
   });
 }
