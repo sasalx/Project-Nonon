@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sasalx/Project-Nonon#readme",
   "dependencies": {
-    "huejay": "^1.7.4"
+    "huejay": "^1.7.4",
+    "prompt": "^1.0.0"
   }
 }
