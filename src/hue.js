@@ -1,16 +1,16 @@
 // Reqs.
 const huejay = require("huejay");
 const db = require("../db/db.json");
-const colourDB = require("../db/colour.json");
+//const colourDB = require("../db/colour.json");
 //const prompt = require("prompt")
-const lambID = "1";
+//const lambID = "1";
 
 // Creates real client that will be used for everything
 let client = new huejay.Client({
     host:     db.bridgeIP,
     port:     80,               
     username: db.username,
-    timeout:  15000,   
+    timeout:  5000,   
 });
 
 function colorChange(id, colour){

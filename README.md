@@ -4,6 +4,7 @@ Philips Hue colour control system via voice input.
 
 ## Based on:
 - [Huejay](https://github.com/sqmk/huejay) for bridge/lamb control.
+- [annyang](https://www.talater.com/annyang/) for Speech to text.
 - [Webpack](https://webpack.js.org/) for bundling.
 - [Chrome-dgram](https://github.com/feross/chrome-dgram) for `DGRAM` on browser(Chrome)
 
