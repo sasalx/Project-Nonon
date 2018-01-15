@@ -1,9 +1,8 @@
 // Reqs.
 const huejay = require("huejay");
-const dpPath = "./db/db.json"
-const db = require(dpPath);
-const colourDB = require("./db/colour.json");
-const prompt = require("prompt")
+const db = require("../db/db.json");
+const colourDB = require("../db/colour.json");
+//const prompt = require("prompt")
 const lambID = "1";
 
 // Creates real client that will be used for everything
@@ -34,6 +33,13 @@ function colorChange(id, colour){
       });
 }
 
+module.exports = {
+    colorChange: colorChange
+}
+
+
+/*
+// Prompt test
 colorChange(lambID, colourDB.normal);
 
 prompt.start();
@@ -43,3 +49,4 @@ prompt.get(["colour"], function (err, result) {
     let cName = colourDB[result.colour];
     colorChange(lambID, cName);
 });
+*/
