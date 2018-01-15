@@ -32,6 +32,7 @@ This will automatically update the db.json.
 
 #### 3- Necessary changes in HueJay
 Go to `./node_modules/huejay/lib`
+
 a) In *Client.js* line 266 change it as:
 ```js
 let Transport = require('./Transport');
@@ -42,7 +43,7 @@ let dgram = require('chrome-dgram');
 ```
 Now we are done with the hard part.
 
-#### 4- Inıt webpack
+#### 4- Init webpack
 ```
 npx webpack --config webpack.config.js
 ```
