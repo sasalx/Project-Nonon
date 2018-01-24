@@ -45,5 +45,5 @@ resume = function (){
 }
 
 tryy = function (){
-    return "works";
+    return "It works";
 }

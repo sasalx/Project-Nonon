@@ -18,8 +18,7 @@
   "homepage": "https://github.com/sasalx/Project-Nonon#readme",
   "dependencies": {
     "chrome-dgram": "^3.0.1",
-    "huejay": "^1.7.4",
-    "prompt": "^1.0.0"
+    "huejay": "^1.7.4"
   },
   "devDependencies": {
     "webpack": "^3.10.0"

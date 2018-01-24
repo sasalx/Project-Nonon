@@ -10,8 +10,6 @@ Philips Hue colour control system via voice input.
 
 ### How to Install
 
-Project is still not finished so you shouldn't download it in this state.
-
 #### 0- Install packages
 ```
 npm install
