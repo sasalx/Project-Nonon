@@ -1,7 +1,17 @@
 const huejay = require("huejay");
 const fs = require("fs");
+const colourDB = require("./db/colour.json");
 const dpPath = "./db/db.json"
 const db = require(dpPath);
+
+// Real Client
+let client = new huejay.Client({
+	host:     db.bridgeIP,
+	port:     80,               
+	username: db.username,
+	timeout:  5000,   
+});
+
 
 // Helper Functions
 
@@ -13,6 +23,30 @@ function jsonUpdate(){
 		}
 	});
 }
+
+// NOTE: This is also exported since I decided to add a manual way to change colour
+function colorChange(id, reqColour){
+	console.log(reqColour);
+	let colour = colourDB[reqColour];
+	console.log(colour);
+	client.lights.getById(id)
+	.then(light => {
+		light.name = colour;
+		light.brightness = colour.brightness;
+		light.hue = colour.hue;
+		light.saturation = colour.saturation
+		light.faded_brightness = colour.faded_brightness;
+		return client.lights.save(light);
+	})
+	.then(light => {
+		console.log(`Updated light [${light.id}] to colour [${light.hue}]`);
+	})
+	.catch(error => {
+		console.log('Something went wrong');
+		console.log(error.stack);
+	});
+}
+
 
 // Exported Functions
 
@@ -62,4 +96,4 @@ function createUser() {
 }
 
 
-module.exports = { getData, createUser }
+module.exports = { getData, createUser, colorChange }

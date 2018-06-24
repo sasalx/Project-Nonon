@@ -2,7 +2,7 @@
 'use strict';
 
 const consoler = require("commander");
-const { getData, createUser } = require("./commands");
+const { getData, createUser, colorChange } = require("./commands");
 
 // Main Section
 
@@ -26,6 +26,14 @@ consoler
   .description('Creates a user for the bridge.')
   .action( () => {
     createUser();
+	});
+	
+	consoler
+  .command('change <colour>')
+  .alias('ch')
+  .description('Changes the colour')
+  .action((colour) => {
+    colorChange(1, colour);
   });
 
 consoler.parse(process.argv);
