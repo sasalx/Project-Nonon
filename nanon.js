@@ -2,7 +2,7 @@
 'use strict';
 
 const consoler = require("commander");
-const { getData } = require("./commands");
+const { getData, createUser } = require("./commands");
 
 // Main Section
 
@@ -20,6 +20,13 @@ consoler
     getData();
   });
 
+consoler
+  .command('createuser')
+  .alias('cu')
+  .description('Creates a user for the bridge.')
+  .action( () => {
+    createUser();
+  });
 
 consoler.parse(process.argv);
 
