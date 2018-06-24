@@ -1,11 +1,13 @@
 {
   "name": "project-nonon",
-  "version": "0.1.0",
-  "description": "Philips Hue colour control system via voice input ",
-  "main": "app.js",
+  "version": "0.2.0",
+  "description": "Philips Hue colour control system via voice input",
+  "main": "nanon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "preferGlobal": true,
+  "bin": "./nanon.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sasalx/Project-Nonon.git"
@@ -17,10 +19,7 @@
   },
   "homepage": "https://github.com/sasalx/Project-Nonon#readme",
   "dependencies": {
-    "chrome-dgram": "^3.0.1",
-    "huejay": "^1.7.4"
-  },
-  "devDependencies": {
-    "webpack": "^3.10.0"
+    "commander": "^2.15.1",
+    "huejay": "^1.8.4"
   }
 }
