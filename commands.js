@@ -24,7 +24,8 @@ function jsonUpdate(){
 	});
 }
 
-// NOTE: This is also exported since I decided to add a manual way to change colour
+// Exported Functions
+
 function colorChange(id, reqColour){
 	console.log(reqColour);
 	let colour = colourDB[reqColour];
@@ -46,9 +47,6 @@ function colorChange(id, reqColour){
 		console.log(error.stack);
 	});
 }
-
-
-// Exported Functions
 
 async function getData() {
 	// Discover your bridge
