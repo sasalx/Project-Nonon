@@ -30,17 +30,16 @@ function colorChange(id, reqColour) {
 	let colour = colourDB[reqColour];
 	client.lights.getById(id)
 		.then(light => {
-			console.log(`    X/Y:        ${light.xy[0]}, ${light.xy[1]}`);
 			light.name = colour;
+			light.reachable = false
 			light.brightness = colour.brightness;
-			light.xy[0] = colour.xy[0];
-			light.xy[1] = colour.xy[1];
+			light.xy = colour.xy;
 			light.saturation = colour.saturation
 			light.faded_brightness = colour.faded_brightness;
+
 			return client.lights.save(light);
 		})
 		.then(light => {
-			console.log(`    X/Y:        ${light.xy[0]}, ${light.xy[1]}`);
 			console.log(`Updated light [${light.id}] to colour [${light.hue}]`);
 		})
 		.catch(error => {
@@ -94,7 +93,7 @@ function createUser() {
 	}
 }
 
-// From https://github.com/usolved/cie-rgb-converter
+// From Hue Dev Page
 function RGB_to_CIE(red, green, blue) {
 	//Apply a gamma correction to the RGB values, which makes the color more vivid and more the like the color displayed on the screen of your device
 	red = (red > 0.04045) ? Math.pow((red + 0.055) / (1.0 + 0.055), 2.4) : (red / 12.92);
@@ -120,5 +119,36 @@ function RGB_to_CIE(red, green, blue) {
 	console.log(`X: ${x} Y: ${y}`)
 }
 
+function getStatus(id) {
+	client.lights.getById(id)
+		.then(light => {
+      console.log(`Light [${light.id}]: ${light.name}`);
+      console.log(`  Type:         ${light.type}`);
+      console.log(`  Unique ID:    ${light.uniqueId}`);
+      console.log(`  Manufacturer: ${light.manufacturer}`);
+      console.log(`  Model Id:     ${light.modelId}`);
+      console.log('  Model:');
+      console.log(`    Id:             ${light.model.id}`);
+      console.log(`    Manufacturer:   ${light.model.manufacturer}`);
+      console.log(`    Name:           ${light.model.name}`);
+      console.log(`    Type:           ${light.model.type}`);
+      console.log(`    Color Gamut:    ${light.model.colorGamut}`);
+      console.log(`    Friends of Hue: ${light.model.friendsOfHue}`);
+      console.log(`  Software Version: ${light.softwareVersion}`);
+      console.log('  State:');
+      console.log(`    On:         ${light.on}`);
+      console.log(`    Reachable:  ${light.reachable}`);
+      console.log(`    Brightness: ${light.brightness}`);
+      console.log(`    Color mode: ${light.colorMode}`);
+      console.log(`    Hue:        ${light.hue}`);
+      console.log(`    Saturation: ${light.saturation}`);
+      console.log(`    X/Y:        ${light.xy[0]}, ${light.xy[1]}`);
+      console.log(`    Color Temp: ${light.colorTemp}`);
+      console.log(`    Alert:      ${light.alert}`);
+      console.log(`    Effect:     ${light.effect}`);
+		}
+	)
+}
 
-module.exports = { getData, createUser, colorChange, RGB_to_CIE }
+
+module.exports = { getData, createUser, colorChange, RGB_to_CIE, getStatus }

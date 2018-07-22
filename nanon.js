@@ -2,7 +2,7 @@
 'use strict';
 
 const consoler = require("commander");
-const { getData, createUser, colorChange, RGB_to_CIE } = require("./commands");
+const { getData, createUser, colorChange, RGB_to_CIE, getStatus } = require("./commands");
 
 // Main Section
 
@@ -31,7 +31,7 @@ consoler
 consoler
 	.command('change <colour>')
 	.alias('ch')
-	.description('Changes the colour')
+	.description('Changes the colour.')
 	.action((colour) => {
 		colorChange(1, colour);
 	});
@@ -39,9 +39,17 @@ consoler
 consoler
 	.command('rgbtrans <red> <green> <blue>')
 	.alias('rgb')
-	.description('Changes the colour')
+	.description('Outputs CIE version of RGB colour.')
 	.action((red, green, blue) => {
-		RGB_to_CIE(red, green, blue)
+		RGB_to_CIE(red, green, blue);
+	});
+
+consoler
+	.command('currstat')
+	.alias('cst')
+	.description('Gives the status of lamp.')
+	.action(() => {
+		getStatus(1)
 	});
 
 consoler.parse(process.argv);
